@@ -16,8 +16,8 @@ The documentation for the UnityPOS is hosted at our [website](https://beggu.net/
 
 ## Licensing
 
-- Copyright 2019 Creative Tim (https://www.beggu.net/)
-- Licensed under MIT 
+- Copyright 2019 Beggu GNU (https://www.beggu.net/)
+- Licensed MIT 
 
 ##### Social Media
 
