@@ -49,7 +49,7 @@ render() {
           <tr key={item.id}>                    
               <td>{ item.code }</td>
               <td>{ item.name }</td>              
-              <td >{new Intl.NumberFormat().format(item.ppucache)}</td>                               
+              <td >{new Intl.NumberFormat().format(item.purchase)}</td>                               
               <td >{new Intl.NumberFormat().format(item.psale)}</td>
               <td className="text-center">{ item.minim}</td>
               <td className="text-center">{ item.stock}</td>
