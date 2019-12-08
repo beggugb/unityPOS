@@ -1,0 +1,87 @@
+.linea{
+	min-height: 50px;
+	border: solid 1px #eaeaea;
+	margin: 5px;
+	padding: 7px; 
+	border-radius: 5px;  
+}
+
+.linea .form-registro
+{  
+  color: #757575;  
+  position: relative;
+  z-index: 1;  
+  
+}
+
+.linea .form-registro input[type="text"]
+{
+  border: solid 1px #c1c1c1;
+  height: calc(1.6rem + 2px);
+  font-size: 0.7rem;	
+  background-color: #efefef;    
+  font-weight: 50;
+}
+
+.linea .form-registro input[type="number"]
+{
+  border: solid 1px #c1c1c1;
+  height: calc(1.3rem + 2px);
+  font-size: 0.7rem;  
+  background-color: #efefef;    
+  font-weight: 50;
+}
+
+
+.linea .form-registro input[type="date"]
+{
+  border: solid 1px #c1c1c1;
+  height: calc(1.3rem + 2px);
+  font-size: 0.7rem;	
+  background-color: #efefef;  
+}
+
+.linea .form-registro textarea
+{
+  border: solid 1px #c1c1c1;
+  height: calc(1.3rem + 2px);
+  font-size: 0.7rem;	
+  background-color: #efefef;
+  height: 60px;  
+}
+
+.slista{
+ background-color: #757575;
+ border: solid 1px #eaeaea;
+ border-radius: 5px;
+ max-height: 120px; 
+ padding-left: 2px;
+ padding-top: 2px;
+ padding-bottom: 2px;
+ margin-top: -15px;
+ position: absolute;
+ z-index: 3; 
+}
+.slista .list-group-item
+{
+  text-align: left;
+  font-size: 0.6rem;
+  font-weight: normal;
+}
+
+
+
+
+.lili .form-registro{  
+  margin: 0 10px;
+}
+
+.lili .form-registro input[type="text"]
+{
+  border: solid 1px #757575;
+  height: calc(1.3rem + 2px);
+  font-size: 0.7rem;  
+  background-color: #757575;      
+  border-radius: 3px;
+  color:#fff;
+}

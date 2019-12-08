@@ -1,0 +1,19 @@
+.users{
+	border: solid 1px #eaeaea;
+	z-index: 100;
+	position: fixed;	
+	min-width: 350px;
+}
+
+.users .list-group-item{	
+	background-color: #1d98e4;
+	padding: 0.1rem 0.4rem; 
+	color: #fff;		
+}
+
+.users .list-group-item:hover, .list-group-item:focus {
+    color: #525f7f;    
+    background-color: #f6f9fc; 
+    padding: 0.1rem 0.4rem; 
+    padding-left: 1px;    
+}
