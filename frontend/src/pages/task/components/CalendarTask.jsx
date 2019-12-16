@@ -67,14 +67,14 @@ handleChanges = async (event) => {
 };
 
 
-toggleModalRegister = (arg) => {    
+toggleModalRegister = (arg) => {      
   this.setState({
     modalRegister: !this.state.modalRegister,
-    fechaId: arg.dateStr
+    fechaId: arg
   }); 
 }
 
-toggleModalView = (item) => {    
+toggleModalView = (item) => {  
   if(this.state.modalView){
     this.setState({
     modalView: !this.state.modalView  ,
@@ -90,10 +90,12 @@ toggleModalView = (item) => {
           backgroundColor: '#1da1f2'
         }   
   }); 
-  } else{
+  } else{  
+    console.log(item.event)
     this.setState({
     modalView: !this.state.modalView,
     task: {
+      id: item.event.id,
       title: item.event.title,
       start: item.event.start
     }
@@ -101,11 +103,12 @@ toggleModalView = (item) => {
   }   
 };
 
-handleSubmit(event){   
+handleSubmit(event){     
   let dato = this.state.task
   dato.userId = this.props.users.user.id    
-  dato.start = this.state.fechaId
-  dato.end = this.state.fechaId
+  dato.start = this.state.fechaId.date
+  dato.end = this.state.fechaId.date
+
   this.props.taskCreate(dato);
   this.setState({
     modalRegister: false,        
@@ -126,22 +129,55 @@ handleSubmit(event){
   event.preventDefault();      
 }
 
+handleMarcar=(task)=>{
+  let dato = task
+  dato.classNames="tachado"
+  dato.backgroundColor="#26e413"
+  dato.userId = this.props.users.user.id
+  this.props.taskUpdate(dato);
+  this.setState({
+    modalView: false,        
+    fechaId:'',
+     task: {            
+          id:'',          
+          userId:0,
+          start:'',
+          end:'',
+          title:'',
+          url:'#',
+          editable:false,
+          selectable:false,
+          backgroundColor: '#1da1f2'
+        }
+    
+   })
+}
 
 render() {      
   const { modalRegister, modalView, task } = this.state
-  const {data } = this.props.tasks    
+  const {data } = this.props.tasks      
     return (
       < >
     	<FullCalendar      
      		locales={[ esLocale]}  
      		locale= {'es'}
-     		plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
-     		events= { data } 
+        timeZone={'America/La_Paz'}
+        navLinks={true}
+     		plugins={[ dayGridPlugin, timeGridPlugin, interactionPlugin ]}
+        defaultView="dayGridMonth"                
+        header={{
+              left: 'prev,next today',
+              center: 'title',
+              right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            }}
+     		events= { data }         
+        eventLimit={ true}
         dateClick={ this.toggleModalRegister}
-        eventClick={this.toggleModalView}             
+        eventClick={this.toggleModalView}    
+           
         /> 
       <Modal
-        modalClassName="modal-calendario" 
+        modalClassName="modal-task" 
         isOpen={modalRegister}
         toggle={this.toggleModalRegister} 
         >        
@@ -154,12 +190,13 @@ render() {
       </Modal>
       
       <Modal 
-      modalClassName="modal-view"
+      modalClassName="modal-task"
       isOpen={modalView}
       toggle={this.toggleModalView} 
       > 
       <ViewTask
-          task={task}               
+          task={task}   
+          handleMarcar={ this.handleMarcar}            
         />          
       </Modal>
 

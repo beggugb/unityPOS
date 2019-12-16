@@ -10,17 +10,18 @@ const defaultVal = (options, valor) =>{
 
 }
 
-const importancia =[{"value":"#26e413","label":"Normal"},
+const importancia =[{"value":"#1da1f2","label":"Normal"},
                     {"value":"#fd5d93","label":"Urgente"}                    
                  ];
 
 const ModalTask = ({...props}) => (
-  <div className="divicions">
-     <Form className="form-registro" onSubmit={ props.handleSubmit}>        
+   <>
+  <div className="taskv">   
+    <Form onSubmit={ props.handleSubmit}>        
       <FormGroup>        
-      <Label for="nombre">Tarea</Label>
+      <Label for="title">Tarea</Label>
         <Input                            
-          type="text"
+          type="textarea"          
           name="title"                            
           value={ props.task.title }
           onChange={(e) => {props.handleChange(e)}}          
@@ -41,11 +42,15 @@ const ModalTask = ({...props}) => (
         <Button          
           className="btn-sm btn-success btn"
           data-dismiss="modal"              
-          onClick={props.handleSubmit}>Aceptar</Button>              
+          onClick={props.handleSubmit}>
+          <i className="fas fa-save"/>
+      {' '}
+          Registrar</Button>              
    
       </ButtonGroup>
-    </Form> 
-    </div>
+    </Form>  
+  </div>  
+  </>
  );
 
 export default ModalTask

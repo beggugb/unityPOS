@@ -11,7 +11,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 import fs from 'fs'
 import shell from 'shelljs'
-const hostname = '192.168.0.100'
+const hostname = 'localhost'
 const port = 4000
 const app = express();
 const server = http.createServer(app)

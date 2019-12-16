@@ -22,7 +22,7 @@ class dashboard extends React.Component {
               <CalendarTask/>              
             </Col>
             <Col md="3" className="cnt">            
-              <CardUser/>
+              <CardUser/>              
             </Col>            
           </Row>          
         </div>

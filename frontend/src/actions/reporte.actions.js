@@ -9,7 +9,7 @@ export const reporteActions = {
     searchArticulos,
     searchCajas,
     searchVentas,    
-    reporteReset
+    reportReset
 }
 
 function searchArticulos(item){
@@ -58,7 +58,7 @@ function changes(props, value){
 }
 
 
-function reporteReset(){
+function reportReset(){
     return dispatch =>{ 
         dispatch(reset()); 
     }

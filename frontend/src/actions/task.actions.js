@@ -7,6 +7,7 @@ export const taskActions = {
     taskData,
     taskCreate,
     taskReset,
+    taskUpdate,
     taskDelete: _taskDelete
 };
 
@@ -32,6 +33,21 @@ function taskCreate(task){
         .catch((err)=>{ 
         	dispatch(createNotification(alertActions.error(err))); 
         	 dispatch(final()); 
+        })
+    }
+}
+
+function taskUpdate(task){
+    return dispatch => {       
+    dispatch(inicial());  
+        taskService.update(task)
+        .then((response)=>{             
+            dispatch(tasksData(response));
+            dispatch(createNotification(alertActions.success("dato creado !!")));
+        })
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err))); 
+             dispatch(final()); 
         })
     }
 }

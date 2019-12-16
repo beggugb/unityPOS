@@ -51,10 +51,9 @@ return(
                 <Button className="nav-link btn-link " onClick={() => makeHttpRequestWithPage(1,pagina)}>
                   <i className="fas fa-chevron-left"></i>
                 </Button>
-              </li>  
-              <li className="nav-link">
+              </li>                
                 { renderPageNumbers }
-              </li>  
+              
               <li className="nav-link">
                 <Button className="nav-link btn-link" onClick={() => makeHttpRequestWithPage(paginas,pagina)}>
                      <i className="fas fa-chevron-right" />

@@ -89,7 +89,7 @@ render() {
           <tr>            
             <td><b>Precio Compra:</b></td>
             <td>
-            {new Intl.NumberFormat('de-DE',{style: "currency",currency:"BOB"}).format(item.ppucache)}
+            {new Intl.NumberFormat('de-DE',{style: "currency",currency:"BOB"}).format(item.purchase)}
             </td> 
           </tr>          
           <tr>            

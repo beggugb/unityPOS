@@ -94,7 +94,7 @@ handleSubmit(event){
 }
 
 componentWillUnmount() {  
-  this.props.reporteReset()
+  this.props.reportReset()
 }
 
   render() {        

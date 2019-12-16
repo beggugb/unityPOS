@@ -128,8 +128,8 @@ const {item } = this.props.cajas
           <Row>
             <Col> 
               <ButtonGroup>
-                <Button
-                className="btn-sm btn-success"
+                <Button                
+                className={item.montoInicial > 0 ? "btn-sm btn-success": "btn-sm disabled"}
                 >Guardar
                 {' '}
                 <i className="fas fa-save" />

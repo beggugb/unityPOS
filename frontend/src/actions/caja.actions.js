@@ -33,7 +33,10 @@ function cajaLista(name){
         cajaService.getLista(name)
         .then((response)=>{            
           dispatch(cajasLista(response));})
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err)));})
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err)));
+            dispatch(final()); 
+        })
     };
 }
 
@@ -43,7 +46,10 @@ function cajaData(page,numPages){
         cajaService.getData(page,numPages)
         .then((response)=>{                
           dispatch(cajasData(response));})
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err)));})
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err)));
+            dispatch(final()); 
+        })
     };
 }
 
@@ -56,7 +62,10 @@ function cajaCreate(caja){
             dispatch(cajasCreate(response));
             dispatch(createNotification(alertActions.success("dato creado !!")));
         })
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err))); })
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err))); 
+            dispatch(final()); 
+        })
     }
 }
 
@@ -69,7 +78,10 @@ function cajaItemCreate(caja){
             dispatch(cajasItemMU(response));
             dispatch(createNotification(alertActions.success("dato creado !!")));
         })
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err))); })
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err))); 
+            dispatch(final()); 
+        })
     }
 }
 
@@ -82,7 +94,10 @@ function cajaItemRemove(caja){
             dispatch(cajasItemMU(response));
             dispatch(createNotification(alertActions.success("dato creado !!")));
         })
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err))); })
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err))); 
+            dispatch(final()); 
+        })
     }
 }
 
@@ -94,7 +109,10 @@ function cajaUpdate(caja){
             dispatch(cajasCreate(response));
             dispatch(createNotification(alertActions.success("dato actualizado !!")));
         })
-        .catch((err)=>{ dispatch(createNotification(alertActions.error(err))); })
+        .catch((err)=>{ 
+            dispatch(createNotification(alertActions.error(err))); 
+            dispatch(final()); 
+        })
     }
 }
 

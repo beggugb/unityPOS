@@ -17,11 +17,12 @@ class TaskController {
   }
 
   static addTask(req, res) {
+
     if (!req.body.title) {      
       res.status(400).send({'message':'Please provide complete details'})
     }else{
       const newTask = req.body
-      const userId  = req.body.userId      
+      const userId  = 1     
       return Task
         .create(newTask)
         .then(task => 
@@ -35,7 +36,9 @@ class TaskController {
   }
   
   static updatedTask(req, res) {
+ 
     const upTask = req.body;    
+    const {userId} = req.body;    
     const { id } = req.params;    
     if (!Number(id)) {      
         res.status(400).send({'message':'Please input a valid numeric value'})
@@ -44,10 +47,10 @@ class TaskController {
         .update(upTask, { where: { id: Number(id) }})
         .then(user => 
             Task
-              .findOne({  where: { id: id }})
-              .then(userTask => res.status(200).send({'message':'Task Update','user':userTask}))
+             .findAll({  where: { userId: userId }})
+              .then(tasks => res.status(200).send({'message':'List Task ','data':tasks}))
               .catch(error => res.status(400).send(error))
-          )  
+          ) 
         .catch(error => res.status(400).send(error))    
       }
     }    

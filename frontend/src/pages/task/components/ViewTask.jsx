@@ -1,19 +1,27 @@
 import React from "react";
-import { Card, CardBody } from 'reactstrap'
+import { ButtonGroup, Button } from 'reactstrap'
+
 import Moment from 'react-moment'
 
-const ViewTask = ({...props}) => (
-    <Card className="card-author">
-    <CardBody>          
-            <div className="detalle text-center">                                  
-            <p >Fecha Registro: <Moment format="DD/MM/YYYY">{props.task.start.createdAt}</Moment></p>                    
-              <div className="texto">
-              {props.task.title}
-              </div>                            
-            </div>
-    </CardBody>    
-    </Card>
-
+const ModalTask = ({...props}) => (
+  <>
+  <div className="taskv">   
+    <p className="tt">Tarea # { props.task.id }</p>
+    <p className="tt"><Moment format="DD/MM/YYYY">{props.task.start}</Moment></p>
+    <p className="tu">{ props.task.title }</p>    
+  </div>
+  <div className="taskb">   
+    <ButtonGroup>
+      <Button className="btn btn-sm btn-success"
+      onClick={() => {props.handleMarcar(props.task)}} 
+      >
+      <i className="fas fa-check"/>
+      {' '}
+      Marcar tarea realizada
+      </Button>      
+    </ButtonGroup> 
+  </div>
+  </>
  );
 
-export default ViewTask
+export default ModalTask

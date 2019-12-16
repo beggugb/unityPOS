@@ -3,6 +3,7 @@ import { authHeader, apiErp } from '../helpers'
 export const taskService = {
     getData,
     create,
+     update,
     delete: _delete 
 }
 
@@ -23,6 +24,15 @@ function create(task) {
 
     return fetch(`${apiErp}/tasks`, requestOptions).then(handleResponse);
 }
+function update(task) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify(task)
+    };
+    return fetch(`${apiErp}/tasks/${task.id}`, requestOptions).then(handleResponse);
+}
+
 
 function _delete(id,playload) {
     const requestOptions = {

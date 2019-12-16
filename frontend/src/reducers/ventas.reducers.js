@@ -52,7 +52,8 @@ export function ventas(state = initialState, action) {
       };  
     case 'VENTA_RESET':
       return {                           
-        data: [],
+        ...state,
+	      data: [],
         items:[],
         item: initialState.item
       };  
