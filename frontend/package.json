@@ -16,7 +16,7 @@
     "history": "^4.10.1",
     "immutable": "^4.0.0-rc.12",
     "moment": "^2.24.0",
-    "node-sass": "4.9.3",
+    "node-sass": "4.13.1",
     "perfect-scrollbar": "1.4.0",
     "react": "^16.11.0",
     "react-barcode": "^1.4.0",
